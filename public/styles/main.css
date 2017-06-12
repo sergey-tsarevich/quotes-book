@@ -1,0 +1,81 @@
+body, section {
+ padding-top: 0;
+}
+
+.crudButtons {
+    float: right;
+    display: inline;
+    margin-bottom: 10px;
+}
+.infoDiv {
+    float: right;
+    display: inline;
+    padding: 5px;
+}
+#catalogGrid {
+    height: 500px;
+    /*max-width: 1024px;*/
+    max-width: 800px;
+    border: solid black 1px;
+}
+#dashboard, #gridNavigator {
+    padding: 10px;
+}
+#pager {
+    padding: 10px;
+    height:20px;
+}
+.export {
+    padding: 10px;
+    width: 700px;
+}
+.export fieldset {
+    /*display: inline;*/
+}
+.version {
+    float: right;
+}
+
+.helpTitle {
+    font-weight: 900;
+    font-size: larger;
+}
+
+/*
+    slickGrid
+*/
+.slick-cell.selected {
+    background-color: beige;
+}
+
+.slick-columnpicker {
+    border: 1px solid #718BB7;
+    background: #f0f0f0;
+    padding: 6px;
+    -moz-box-shadow: 2px 2px 2px silver;
+    -webkit-box-shadow: 2px 2px 2px silver;
+    box-shadow: 2px 2px 2px silver;
+    min-width: 100px;
+    cursor: default;
+}
+
+.slick-columnpicker li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.slick-columnpicker input {
+    margin: 4px;
+}
+
+.slick-columnpicker li a {
+    display: block;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.slick-columnpicker li a:hover {
+    background: white;
+}

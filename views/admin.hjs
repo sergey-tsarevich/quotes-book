@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="book">
+    <title>Control panel</title>
+    <link rel="icon" href="images/open_book.png">
+    <!-- Le styles -->
+    <link href="styles/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/custom-theme/jquery-ui-1.9.2.custom.css">
+    <link type="text/css" href="styles/assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="styles/custom-theme/jquery.ui.1.9.2.ie.css"/>
+    <![endif]-->
+
+    <link href="styles/assets/css/docs.css" rel="stylesheet">
+
+    <script language="javascript" type="text/javascript" src="lib/jqlibs/jquery-1.8.3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/jqlibs/jquery.event.drag-2.2.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/jqlibs/jquery.event.drop-2.2.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/jqlibs/jquery-ui-1.9.2.custom.min.js"></script>
+    <!--   SlickGrid core dependencies     -->
+    <link rel="stylesheet" href="styles/sgrid/slick.grid.css">
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.core.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.grid.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.dataview.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.editors.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.rowselectionmodel.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.checkboxselectcolumn.js"></script>
+
+    <!--   SlickGrid dnd, column picker dependencies   -->
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.rowmovemanager.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sgrid/slick.columnpicker.js"></script>
+
+    <link rel="stylesheet" href="styles/main.css">
+    <script>
+        // Globals
+        var ADMIN_URL = '{{ adminUrl }}';
+
+        // remove starting slash
+        if (ADMIN_URL.indexOf('/') === 0) {
+            ADMIN_URL = ADMIN_URL.substring(1);
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="infoDiv">
+    <span class="helpTitle" title="
+                • Edit cell (left click on cell, Esc - end editing)
+                • Multiple column sorting (sort one column, press Ctrl and sort other columns)
+                • Choose columns that show (right click on headers and select columns to show)
+                • Selecting multiple columns (Hold Ctrl and\or Shift and select columns)
+                • Move columns positions (hold left click on column and drag it)">
+        <a href="#">?</a>
+    </span>
+    <a href="{{ adminUrl }}/logout" class="logout">logout</a>
+    <div id="infoDiv"></div>
+</div>
+<div class="container">
+
+    <section>
+        <div>
+            <div id="gridNavigator">
+                <label for="txtSearch5">Фильтрация таблицы по:</label>
+                <input type=text id="txtSearch5" style="width:250px;" value=""/>
+
+                <div class="crudButtons">
+                    <button onclick="Catalog.addC();">Добавить</button>
+                    <button onclick="Catalog.delSelectedC();">Удалить выбранные строки</button>
+                </div>
+            </div>
+
+            <div id="rbook-tab">
+                <div id="catalogGrid"></div>
+                <div id="pager"></div>
+            </div>
+        </div>
+    </section>
+    <section>
+
+        <div id="dashboard">
+
+            <div class="export">
+                <fieldset>
+                    <legend>To export data from Google or Excel table: <sub>ᛎ</sub></legend>
+                    <div style="display:none;">
+                        <label>Fields SHOULD NOT contain dot "." sign!</label>
+                        <label for="importArea">
+                            <ol>
+                                <li>Select and copy used rows and columns with headers</li>
+                                <li>Paste into <a href="http://shancarter.github.io/mr-data-converter" target="_blank">mr-data-converter</a>
+                                </li>
+                                <li>Copy Output (as JSON - Properties) and insert into text area below.</li>
+                            </ol>
+                        </label>
+
+                        <button onclick="DbUtils.compactDB();">Zip DB</button>
+                        <button onclick="Catalog.importData();">Import to DB</button>
+                        <textarea id="importArea"></textarea>
+
+                        <label for="tags">Тэги импорта:</label>
+                        <input type=text id="tags" value=""/>
+                        <hr/>
+                        <label for="columnsMapping">Переназначить столбцы:</label>
+                        <span id="importColumns"></span>
+
+                        <div id="columnsMapping">
+                            Вставте данные для импорта.
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="version">
+            v {{ version }}
+        </div>
+    </section>
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="styles/assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  ==App JS  -->
+<script language="javascript" type="text/javascript" src="js/catalog.js"></script>
+<script language="javascript" type="text/javascript" src="js/main.js"></script>
+<script language="javascript" type="text/javascript" src="js/db_utils.js"></script>
+</body>
+</html>

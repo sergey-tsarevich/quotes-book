@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Enter</title>
+    <style type="text/css">
+        .form-center {
+			width: 170px;
+			height: 150px;
+			position: absolute;
+			top:0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+        }
+        div {
+            padding: 5px 0 5px 0;
+        }
+    </style>
+    <link href="styles/assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form class="form-center" role="form" action="{{ adminUrl }}/enter" method="POST">
+    <label for="inputLogin">Логин</label>
+    <div>
+        <input type="text" id="inputLogin" name="login" placeholder="Login" autofocus>
+    </div>
+    <label for="inputPassword1">Пароль</label>
+    <div>
+        <input type="password" name="password" id="inputPassword1" placeholder="Password">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-default">Войти</button>
+    </div>
+</form>
+</body>
+</html>
